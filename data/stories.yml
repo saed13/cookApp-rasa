@@ -28,3 +28,30 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: add_item_to_shopping_list
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: add_items_to_shopping_list
+  - action: add_selected_items
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: path_to_recommendation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_for_recommendation
+  - action: give_recommendation
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: path_to_recipe_based_on_ingredients
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_for_recipe_based_on_ingredients
+  - action: give_recipe_based_on_ingredients
+  - intent: goodbye
+  - action: utter_goodbye

@@ -8,6 +8,17 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - add_items_to_shopping_list
+  - ask_for_recommendation
+  - ask_for_recipe_based_on_ingredients
+
+actions:
+- add_selected_items
+- give_recommendation
+- utter_goodbye
+- utter_greet
+- give_recipe_based_on_ingredients
+
 
 responses:
   utter_greet:

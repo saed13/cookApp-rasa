@@ -89,3 +89,25 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: ask_for_certain_type_of_food
+  examples: |
+    - I want to eat something with meat
+    - I want to eat something light
+    - I want to eat something with vegetables
+    - I want to eat something sweet
+
+- intent: ask_for_recipe_based_on_ingredients
+  examples: | 
+    - give me a recipe that I can make with my ingredients
+    - can you recommend me a recipe that I can make out of my ingredients
+
+- intent: ask_for_recommendation
+  examples: |
+    - give me a random recipe
+    - I don't know what I want, recommend me something
+
+- intent: add_items_to_shopping_list
+  examples: |
+    - can you add these items to my shopping list?
+    - add [] to my shopping list 
+    - add the ingredients that I need for {recipe} to my shopping list
