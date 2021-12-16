@@ -1,16 +1,24 @@
 # This files contains your custom actions which can be used to run
 import requests
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, events
 from rasa_sdk.executor import CollectingDispatcher
 from .connectDB import *
 from .constrants import API_KEY
+from rasa.shared.core.slots import Slot
 
+def listToString(s):
+    # initialize an empty string
+    str1 = ", "
+
+    # return string
+    return (str1.join(s))
+#get sender id, save it in the DB
 class give_recommendation(Action):
     msg = ""
 
     def name(self) -> Text:
-        return "give_recommendation"
+        return "action_return_recommendation"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -21,7 +29,9 @@ class give_recommendation(Action):
         resDic = x.json()
         msg = resDic['recipes'][0]['title']
 
-        addRecipeToDB(msg)
+        #addRecipeToDB(msg)
+
+        print(tracker.sender_id)
 
         dispatcher.utter_message(msg)
 
@@ -31,7 +41,7 @@ class give_recipe_based_on_ingredients(Action):
     msg = ""
 
     def name(self) -> Text:
-        return "give_recipe_based_on_ingredients"
+        return "action_return_recipe_based_on_ingredients"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -46,7 +56,7 @@ class give_recipe_based_on_ingredients(Action):
 class add_to_shopping_list(Action):
 
     def name(self) -> Text:
-        return "add_selected_items"
+        return "action_add_selected_items"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
