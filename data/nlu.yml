@@ -1,5 +1,4 @@
 version: "3.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,11 +15,10 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - cu
-    - good by
+    - good bye
     - cee you later
     - good night
     - bye
@@ -29,7 +27,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -38,7 +35,7 @@ nlu:
     - of course
     - that sounds good
     - correct
-
+    - thanks
 - intent: deny
   examples: |
     - no
@@ -48,7 +45,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -65,7 +61,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -82,7 +77,6 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -95,19 +89,36 @@ nlu:
     - I want to eat something light
     - I want to eat something with vegetables
     - I want to eat something sweet
-
 - intent: ask_for_recipe_based_on_ingredients
-  examples: | 
+  examples: |
     - give me a recipe that I can make with my ingredients
     - can you recommend me a recipe that I can make out of my ingredients
-
 - intent: ask_for_recommendation
   examples: |
     - give me a random recipe
     - I don't know what I want, recommend me something
-
+    - recommend me a recipe
 - intent: add_items_to_shopping_list
   examples: |
-    - can you add these items to my shopping list?
-    - add [] to my shopping list 
-    - add the ingredients that I need for {recipe} to my shopping list
+    - can you add these items to my shopping list
+    - add [salad](item) to my shopping list
+    - please add [mushrooms](item), [beans](item) and [rice](item) to my shopping list
+    - could you add [potatos](item), [spaghetti](item) and [chocolate](item) to my shopping list
+    - add the ingredients that I need for [Steak with potatos](meal) to my shopping list
+    - add [rice](item) to shopping list
+- intent: say_name
+  examples: |
+    - my name is [nick](name)
+    - [saed](name)
+    - [Udo](name) is my name.
+    - they call me [emma](name)
+    - [sabrina](name)
+    - [saed](name)
+- intent: ask_for_shopping_list
+  examples: |
+    - whats on my shopping list?
+    - tell me what I have to buy
+    - fetch me my shopping list
+    - give me my shopping list
+    - return my shopping list
+    - I want to look at my shopping list

@@ -62,6 +62,60 @@ class add_to_shopping_list(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        addItemToShoppingList()
+        entities = tracker.latest_message['entities']
+        username = tracker.get_slot("name")
+        print(username)
+        for e in entities:
+            if e['entity'] == 'item':
+                item = e['value']
+                addItemToShoppingList(item,username)
+
+        dispatcher.utter_message('okay, '+username+', I have added the items to your list')
 
         return []
+
+class action_react_name(Action):
+
+    def name(self) -> Text:
+        return "action_react_name"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        entities = tracker.latest_message['entities']
+        name = ""
+        for e in entities:
+            if e['entity'] == 'name':
+                name = e['value']
+
+        username = getUser(name)
+        print(username)
+        if username == None:
+            addUser(name)
+
+
+        dispatcher.utter_message('Hello ' + name + '! How can I help you?')
+
+        return [events.SlotSet("name", name)]
+
+
+class action_return_shopping_list(Action):
+
+    def name(self) -> Text:
+            return "action_return_shopping_list"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        username = tracker.get_slot("name")
+
+        list = getShoppingList(username)
+        strList= listToString(list)
+
+
+        dispatcher.utter_message('Okay, your list contains the following items:'+ strList)
+
+        return []
+
+

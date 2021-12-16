@@ -9,20 +9,49 @@ stories:
   - intent: mood_great
   - action: utter_happy
 
+- story: get shopping list
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: say_name
+    entities:
+    - name: kevin
+  - action: action_react_name
+  - slot_was_set:
+    - name: klaus
+  - intent: ask_for_shopping_list
+  - action: action_return_shopping_list
+  - intent: goodbye
+  - action: utter_goodbye
+
+
 - story: sad path 1
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: say_name
+    entities:
+    - name: kevin
+  - action: action_react_name
+  - slot_was_set:
+    - name: kevin
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
 
+
 - story: sad path 2
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: say_name
+    entities:
+    - name: mike
+  - action: action_react_name
+  - slot_was_set:
+    - name: nick
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -68,6 +97,12 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: say_name
+    entities:
+    - name: nick
+  - action: action_react_name
+  - slot_was_set:
+    - name: nick
   - intent: ask_for_recipe_based_on_ingredients
   - action: action_return_recipe_based_on_ingredients
   - intent: goodbye
