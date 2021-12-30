@@ -38,7 +38,6 @@ def addUser(name):
     userAttributes = {
         "name": name,
         "cart": [],
-        "inventory": [],
         "last_recipe": None
     }
 
@@ -51,18 +50,3 @@ def getUser(user_name):
     })
 
     return foundUser
-
-def addToInventory(item, user_id):
-
-    db.users.update_one({
-        "id": user_id,
-    }, {
-        "$push": {"inventory": item}
-    })
-
-# db.shopping_list.insert_one({
-#     'name': 'tomato'
-# })
-#
-# for item in db.shopping_list.find():
-#     pprint(item)

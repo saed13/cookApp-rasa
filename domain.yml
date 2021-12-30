@@ -4,19 +4,21 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - say_name
-- ask_for_shopping_list
 - greet
-- goodbye
-- add_items_to_shopping_list
 - ask_for_recommendation
-- affirm
+- goodbye
+- ask_for_recipe_based_on_ingredients
 - deny
+- ask_for_shopping_list
+- add_items_to_shopping_list
+- affirm
 - mood_great
 - mood_unhappy
 - bot_challenge
-- ask_for_recipe_based_on_ingredients
 - ask_for_certain_type_of_food
+- ask_for_recipe_based_on_diet
 entities:
+- diet
 - item
 - name
 slots:
@@ -41,11 +43,12 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
 actions:
-- action_return_shopping_list
 - action_add_selected_items
 - action_react_name
+- action_return_recipe_based_on_diet
 - action_return_recipe_based_on_ingredients
 - action_return_recommendation
+- action_return_shopping_list
 - ask_for_shopping_list
 - utter_goodbye
 - utter_greet

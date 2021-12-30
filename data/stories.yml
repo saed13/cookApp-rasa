@@ -83,27 +83,51 @@ stories:
   - action: utter_greet
   - intent: say_name
     entities:
-    - name: laura
+      - name: saed
+  - slot_was_set:
+      - name: saed
   - action: action_react_name
   - slot_was_set:
-    - name: laura
+      - name: saed
   - intent: ask_for_recommendation
   - action: action_return_recommendation
-  - intent: affirm
-  - action: utter_happy
   - intent: goodbye
   - action: utter_goodbye
+
 - story: path_to_recipe_based_on_ingredients
   steps:
   - intent: greet
   - action: utter_greet
   - intent: say_name
     entities:
-    - name: nick
+    - name: saed
+  - slot_was_set:
+    - name: saed
   - action: action_react_name
   - slot_was_set:
-    - name: nick
+    - name: saed
   - intent: ask_for_recipe_based_on_ingredients
+    entities:
+    - item: beerwurst
   - action: action_return_recipe_based_on_ingredients
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: path_to_recipe_based_on_diet
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: say_name
+    entities:
+    - name: saed
+  - slot_was_set:
+    - name: saed
+  - action: action_react_name
+  - slot_was_set:
+    - name: saed
+  - intent: ask_for_recipe_based_on_diet
+    entities:
+    - diet: vegan
+  - action: action_return_recipe_based_on_diet
   - intent: goodbye
   - action: utter_goodbye

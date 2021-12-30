@@ -1,4 +1,4 @@
 .idea
 .rasa
-.moodels
+.models
 ./actions/constrants.py
