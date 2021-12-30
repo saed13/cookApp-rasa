@@ -115,7 +115,8 @@ class give_recipe_based_on_ingredients(Action):
         resDic = x.json()
         if(len(resDic)>0):
             msg = resDic[0]['title']
-            recipeID = str(resDic['results'][0]['id'])
+            recipeID = resDic[0]['id']
+            recipeID = str(recipeID)
             y = requests.get('https://api.spoonacular.com/recipes/' + recipeID + '/information', params={
                 'apiKey': API_KEY
             })

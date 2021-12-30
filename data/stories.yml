@@ -18,7 +18,7 @@ stories:
     - name: kevin
   - action: action_react_name
   - slot_was_set:
-    - name: klaus
+    - name: kevin
   - intent: ask_for_shopping_list
   - action: action_return_shopping_list
   - intent: goodbye
@@ -48,7 +48,7 @@ stories:
   - action: utter_greet
   - intent: say_name
     entities:
-    - name: mike
+    - name: nick
   - action: action_react_name
   - slot_was_set:
     - name: nick
